@@ -1,0 +1,29 @@
+name: Arabic text orthography
+on: [push, pull_request]
+jobs:
+  tanween-placement:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check tanween placement in Arabic text
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          # In this site's house style, fath tanween belongs on final alif.
+          misplaced = re.compile(r'[\u0621-\u064a]\u064b\u0627')
+          paths = list(Path('.').glob('*.html')) + list(Path('.').glob('*.md')) + list(Path('assets').glob('*.js'))
+          errors = []
+          for path in paths:
+              content = path.read_text(encoding='utf-8')
+              for hit in misplaced.finditer(content):
+                  line = content.count('\n', 0, hit.start()) + 1
+                  errors.append(f'{path}:{line}')
+          if errors:
+              print('Arabic tanween placement needs correction:', *errors, sep='\n')
+              sys.exit(1)
+          print('Arabic tanween placement: OK')
+          PY
