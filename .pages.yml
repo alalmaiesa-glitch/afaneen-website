@@ -1,0 +1,179 @@
+# Afaneen: GitHub-backed editorial control panel (Pages CMS)
+media:
+  - name: documents
+    label: ملفات الحوكمة PDF
+    input: uploads/governance
+    output: /uploads/governance
+    extensions: [pdf]
+    rename: random
+  - name: images
+    label: الصور
+    input: uploads/images
+    output: /uploads/images
+    extensions: [jpg, jpeg, png, webp]
+    rename: random
+
+content:
+  - name: governance
+    label: ملفات الحوكمة والإفصاح
+    type: file
+    path: content/governance.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: اسم الوثيقة
+        type: string
+        required: true
+      - name: category
+        label: القسم
+        type: select
+        required: true
+        options:
+          values:
+            - name: guides
+              label: الوثائق التأسيسية وأدلة الحوكمة
+            - name: policies
+              label: اللوائح والسياسات
+            - name: reports
+              label: التقارير والإفصاحات المالية
+      - name: year
+        label: السنة
+        type: string
+      - name: document
+        label: ملف PDF
+        type: file
+        required: true
+        options:
+          media: documents
+          extensions: [pdf]
+      - name: published
+        label: نشر الوثيقة للزوار
+        type: boolean
+        default: false
+
+  - name: news
+    label: أخبار الجمعية
+    type: file
+    path: content/news.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: عنوان الخبر
+        type: string
+        required: true
+      - name: date
+        label: تاريخ الخبر
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+      - name: summary
+        label: نص الخبر
+        type: text
+        required: true
+      - name: image
+        label: صورة الخبر
+        type: image
+        options:
+          media: images
+      - name: published
+        label: نشر الخبر للزوار
+        type: boolean
+        default: false
+
+  - name: programs
+    label: البرامج والمبادرات
+    type: file
+    path: content/programs.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: اسم البرنامج
+        type: string
+        required: true
+      - name: category
+        label: التصنيف
+        type: select
+        required: true
+        options:
+          values:
+            - name: program
+              label: برنامج
+            - name: initiative
+              label: مبادرة
+      - name: summary
+        label: الوصف
+        type: text
+        required: true
+      - name: image
+        label: الصورة
+        type: image
+        options:
+          media: images
+      - name: published
+        label: نشر للزوار
+        type: boolean
+        default: false
+
+
+  - name: gallery
+    label: مكتبة الصور
+    type: file
+    path: content/gallery.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: وصف الصورة
+        type: string
+        required: true
+      - name: image
+        label: الصورة
+        type: image
+        required: true
+        options:
+          media: images
+      - name: published
+        label: عرض الصورة في الموقع
+        type: boolean
+        default: false
+
+  - name: site
+    label: النصوص وبيانات التواصل
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: home_description
+        label: التعريف في الصفحة الرئيسية
+        type: text
+      - name: about_paragraph_1
+        label: نبذة عن الجمعية - الفقرة الأولى
+        type: text
+      - name: about_paragraph_2
+        label: نبذة عن الجمعية - الفقرة الثانية
+        type: text
+      - name: council_body
+        label: أفانين بقلم المجلس - نص الكلمة
+        type: text
+      - name: council_signer_title
+        label: صفة التوقيع
+        type: string
+      - name: council_signer_name
+        label: اسم صاحب التوقيع
+        type: string
+      - name: contact_email
+        label: البريد الإلكتروني
+        type: string
+      - name: contact_phone
+        label: رقم الهاتف
+        type: string
+      - name: contact_address
+        label: العنوان
+        type: text
+      - name: social_x
+        label: رابط منصة X
+        type: string
