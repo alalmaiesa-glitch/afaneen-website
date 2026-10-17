@@ -9,8 +9,8 @@
   $$('.nav-item>button.nav-link').forEach(b=>b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')==='true';$$('.nav-item>button.nav-link').forEach(x=>x.setAttribute('aria-expanded','false'));b.setAttribute('aria-expanded',String(!open));}));
   document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))$$('.nav-item>button.nav-link').forEach(x=>x.setAttribute('aria-expanded','false'));});
   const entries=[
-   ['الرئيسية','index.html','الصفحة الرئيسية أفانين'],['نبذة عنا','about.html','عن الجمعية'],['الرؤية والرسالة','about.html#vision','التعريف الرسمي'],
-   ['كلمة رئيسة مجلس الإدارة','about.html#chairwoman-message','كلمة قيادة الجمعية وأفانين'],
+   ['الرئيسية','index.html','الصفحة الرئيسية أفانين'],['من نحن','about.html','نبذة عن الجمعية أفانين'],['نبذة عن الجمعية','about.html#intro','التعريف بالجمعية'],
+   ['أفانين بقلم المجلس','about.html#chairwoman-message','الأدب والفن بلسان المجتمع'],
    ['الحوكمة والإفصاح','governance.html','الشفافية واللوائح'],['رقم التسجيل والرقم الوطني','governance.html#identity','البيانات النظامية'],
    ['مجلس الإدارة','governance.html#leadership','التنظيم التنفيذي والجمعية العمومية'],['أدلة الحوكمة','governance.html#guides','اللائحة الأساسية والترخيص'],
    ['لوائح وسياسات الجمعية','governance.html#policies','تضارب المصالح والإبلاغ عن المخالفات'],['القوائم المالية والتقارير السنوية','governance.html#reports','الشفافية المالية'],
