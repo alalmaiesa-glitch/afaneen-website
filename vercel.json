@@ -15,5 +15,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/admin",
+      "destination": "https://app.pagescms.org",
+      "permanent": false
+    }
   ]
 }

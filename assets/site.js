@@ -129,8 +129,7 @@
   }
   const homeNews = get('section.news');
   if (homeNews) {
-    if (!publishedNews.length) homeNews.hidden = true;
-    else {
+    if (publishedNews.length) {
       const lead = publishedNews[0];
       const title = homeNews.querySelector('.featured-story h3');
       if (title) title.textContent = lead.title;
