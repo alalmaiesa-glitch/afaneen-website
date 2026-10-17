@@ -10,6 +10,7 @@
   document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))$$('.nav-item>button.nav-link').forEach(x=>x.setAttribute('aria-expanded','false'));});
   const entries=[
    ['الرئيسية','index.html','الصفحة الرئيسية أفانين'],['نبذة عنا','about.html','عن الجمعية'],['الرؤية والرسالة','about.html#vision','التعريف الرسمي'],
+   ['كلمة رئيسة مجلس الإدارة','about.html#chairwoman-message','كلمة قيادة الجمعية وأفانين'],
    ['الحوكمة والإفصاح','governance.html','الشفافية واللوائح'],['رقم التسجيل والرقم الوطني','governance.html#identity','البيانات النظامية'],
    ['مجلس الإدارة','governance.html#leadership','التنظيم التنفيذي والجمعية العمومية'],['أدلة الحوكمة','governance.html#guides','اللائحة الأساسية والترخيص'],
    ['لوائح وسياسات الجمعية','governance.html#policies','تضارب المصالح والإبلاغ عن المخالفات'],['القوائم المالية والتقارير السنوية','governance.html#reports','الشفافية المالية'],
