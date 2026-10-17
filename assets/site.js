@@ -36,5 +36,5 @@
   field?.addEventListener('input',()=>paint(field.value));
   overlay?.addEventListener('click',e=>{if(e.target===overlay)closeSearch();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(overlay?.classList.contains('open'))closeSearch();toggleMobile(false);$$('.nav-item>button.nav-link').forEach(x=>x.setAttribute('aria-expanded','false'));}});
-  let handle;$$('.js-support').forEach(x=>x.addEventListener('click',e=>{e.preventDefault();toggleMobile(false);const el=$('#support-toast');if(!el)return;el.classList.add('open');clearTimeout(handle);handle=setTimeout(()=>el.classList.remove('open'),5000);}));
+
 })();
